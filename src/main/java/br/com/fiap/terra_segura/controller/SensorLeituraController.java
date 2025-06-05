@@ -47,7 +47,7 @@ public class SensorLeituraController {
             @ApiResponse(responseCode = "404", description = "Nenhuma leitura encontrada")
     })
     public Page<SensorLeitura> index(SensorFilter filter,
-            @PageableDefault(size = 10, sort = "dataHoraLeitura", direction = Direction.DESC) Pageable pageable) {
+            @PageableDefault(size = 2, sort = "dataHoraLeitura", direction = Direction.DESC) Pageable pageable) {
         var specification = SensorLeituraSpecification.withFilter(filter);
         return repository.findAll(specification, pageable);
     }

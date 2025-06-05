@@ -11,6 +11,7 @@ import jakarta.persistence.Id;
 import jakarta.validation.constraints.DecimalMax;
 import jakarta.validation.constraints.DecimalMin;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -32,12 +33,12 @@ public class RegiaoMonitorada {
     @Size(max = 100, message = "O nome deve ter no máximo 100 caracteres.")
     private String nome;
 
-    @NotBlank(message = "A latitude é obrigatória.")
+    @NotNull(message = "A latitude é obrigatória.")
     @DecimalMin(value = "-90.0", message = "Latitude mínima é -90.")
     @DecimalMax(value = "90.0", message = "Latitude máxima é 90.")
     private BigDecimal latitude;
 
-    @NotBlank(message = "A longitude é obrigatória.")
+    @NotNull(message = "A longitude é obrigatória.")
     @DecimalMin(value = "-180.0", message = "Longitude mínima é -180.")
     @DecimalMax(value = "180.0", message = "Longitude máxima é 180.")
     private BigDecimal longitude;
@@ -46,7 +47,7 @@ public class RegiaoMonitorada {
     @NotBlank(message = "A descrição é obrigatória.")
     private String descricao;
 
-    @NotBlank(message = "O nível de risco é obrigatório.")
+    @NotNull(message = "O nível de risco é obrigatório.")
     @Enumerated(EnumType.STRING)
     private NivelRisco nivelRisco;
 }

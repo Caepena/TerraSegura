@@ -24,14 +24,13 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class SensorLeitura {
-    
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     public Long id;
 
     @ManyToOne
-    @NotNull(message = "A região monitorada é obrigatória.")
-    @JoinColumn(name = "id")
+    @JoinColumn(name = "regiao_monitorada_id", nullable = false)
     private RegiaoMonitorada regiaoMonitoradaId;
 
     @Enumerated(EnumType.STRING)
