@@ -12,7 +12,6 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.validation.constraints.DecimalMin;
-import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -33,13 +32,13 @@ public class SensorLeitura {
     @ManyToOne
     @NotNull(message = "A região monitorada é obrigatória.")
     @JoinColumn(name = "id")
-    private RegiaoMonitorada regiaoMonitorada;
+    private RegiaoMonitorada regiaoMonitoradaId;
 
     @Enumerated(EnumType.STRING)
     @NotNull(message = "O tipo de sensor é obrigatório.")
     private TipoSensor tipoSensor;
 
-    @NotBlank(message = "Valor da medição é obrigatório.")
+    @NotNull(message = "Valor da medição é obrigatório.")
     @DecimalMin(value = "0.0", inclusive = true, message = "O valor deve ser maior ou igual a zero.")
     private BigDecimal valor;
 
