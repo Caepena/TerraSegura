@@ -68,7 +68,7 @@ public class RegiaoMonitoradaController {
             @ApiResponse(responseCode = "200", description = "Região monitorada encontrada com sucesso"),
             @ApiResponse(responseCode = "404", description = "Região monitorada não encontrada")
     })
-    public RegiaoMonitorada get(Long id) {
+    public RegiaoMonitorada get(@PathVariable Long id) {
         log.info("Buscando região monitorada com ID: {}", id);
         return getRegiao(id);
     }
